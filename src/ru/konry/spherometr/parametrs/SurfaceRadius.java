@@ -1,7 +1,7 @@
-package ru.konry.spherometr;
+package ru.konry.spherometr.parametrs;
 
 public class SurfaceRadius {
-    double radius;
+    public double radius;
 
     public SurfaceRadius(double radius){
         this.radius = radius;

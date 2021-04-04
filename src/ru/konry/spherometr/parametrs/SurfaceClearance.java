@@ -1,7 +1,7 @@
-package ru.konry.spherometr;
+package ru.konry.spherometr.parametrs;
 
 public class SurfaceClearance {
-    double clearance;
+    public double clearance;
 
     public SurfaceClearance(double clearance) {
         this.clearance = clearance;

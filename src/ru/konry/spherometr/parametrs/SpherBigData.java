@@ -1,4 +1,4 @@
-package ru.konry.spherometr;
+package ru.konry.spherometr.parametrs;
 
 public enum SpherBigData {
 
@@ -7,8 +7,8 @@ public enum SpherBigData {
 	RING_3(109.9832, 3.157),
 	RING_4(149.982, 3.160);
 
-	final double ringRadius;
-	final double ballRadius;
+	public final double ringRadius;
+	public final double ballRadius;
 
 	SpherBigData(double ringRadius, double ballRadius) {
 		this.ringRadius = ringRadius;

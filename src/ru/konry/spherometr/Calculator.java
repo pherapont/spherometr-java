@@ -1,5 +1,10 @@
 package ru.konry.spherometr;
 
+import ru.konry.spherometr.parametrs.SpherBigData;
+import ru.konry.spherometr.parametrs.SpherSmallData;
+import ru.konry.spherometr.parametrs.SurfaceClearance;
+import ru.konry.spherometr.parametrs.SurfaceRadius;
+
 public class Calculator {
 
 	private final double ringRadius;
@@ -45,7 +50,9 @@ public class Calculator {
 
 	public static void main(String[] args) {
 		Calculator calculator = new Calculator(SpherBigData.RING_1);
-		SurfaceRadius r = calculator.calcConvex(new SurfaceClearance(1.24));
-		System.out.println("Тестовое вычисление радиуса: " + r.radius);
+		SurfaceRadius rConvex = calculator.calcConvex(new SurfaceClearance(1.24));
+		System.out.println("Тестовое вычисление выпуклого радиуса: " + rConvex.radius);
+		SurfaceClearance cConvex = calculator.calcConvex(new SurfaceRadius(100));
+		System.out.println("Тестовое вычисление выпуклой стрелки: " + cConvex.clearance);
 	}
 }
