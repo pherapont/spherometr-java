@@ -11,6 +11,17 @@ public class UserSpherometrData {
     private CalculationType calculationType;
     private int ringNumber;
 
+    @Override
+    public String toString() {
+        return "UserSpherometrData{" +
+                "surfaceType=" + surfaceType +
+                ", surfaceMeasure=" + surfaceMeasure +
+                ", spherometrType=" + spherometrType +
+                ", calculationType=" + calculationType +
+                ", ringNumber=" + ringNumber +
+                '}';
+    }
+
     public SurfaceType getSurfaceType() {
         return surfaceType;
     }
