@@ -24,7 +24,7 @@ public class SpherometrSmall
         }
     }
 
-    private double result;;
+    private final double result;;
 
     public SpherometrSmall(int ringNumber, SurfaceClearance measure, SurfaceType type) {
         SpherSmallData sphereType = SpherSmallData.values()[ringNumber - 1];
@@ -32,9 +32,9 @@ public class SpherometrSmall
         double ballRadius = sphereType.ballRadius;
         RadiusCalculator radiusCalculator = new RadiusCalculator(measure.clearance, ringRadius, ballRadius);
         if(type == SurfaceType.CONCAVE) {
-            radiusCalculator.calcConcave();
+            result = radiusCalculator.calcConcave();
         } else {
-            radiusCalculator.calcConvex();
+            result = radiusCalculator.calcConvex();
         }
     }
 
