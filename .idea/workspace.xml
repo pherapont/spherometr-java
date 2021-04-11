@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b274b633-0c7a-422c-b08f-5408348f181e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/ru/konry/spherometr/cli/UserInputRegistrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/konry/spherometr/cli/UserInputRegistrator.java" afterDir="false" />
-    </list>
+    <list default="true" id="b274b633-0c7a-422c-b08f-5408348f181e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,6 +49,36 @@
       <option name="presentableId" value="Default" />
       <updated>1617601455901</updated>
     </task>
+    <task id="LOCAL-00001" summary="general input method in UserInputRegistrator">
+      <created>1618138096108</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1618138096108</updated>
+    </task>
+    <task id="LOCAL-00002" summary="general input method in UserInputRegistrator">
+      <created>1618138217484</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1618138217484</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="general input method in UserInputRegistrator" />
+    <option name="LAST_COMMIT_MESSAGE" value="general input method in UserInputRegistrator" />
   </component>
 </project>

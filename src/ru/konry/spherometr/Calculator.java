@@ -1,9 +1,6 @@
 package ru.konry.spherometr;
 
-import ru.konry.spherometr.parametrs.SpherBigData;
-import ru.konry.spherometr.parametrs.SpherSmallData;
-import ru.konry.spherometr.parametrs.SurfaceClearance;
-import ru.konry.spherometr.parametrs.SurfaceRadius;
+import ru.konry.spherometr.parametrs.*;
 
 public class Calculator {
 
@@ -34,18 +31,18 @@ public class Calculator {
 		return new SurfaceClearance(res);
 	}
 
-	public SurfaceRadius calcConcave(SurfaceClearance sc) {
+	public double calcConcave(SurfaceClearance sc) {
 		double term_1 = ringRadius * ringRadius / sc.clearance;
 		double term_2 = sc.clearance / 2;
 		double res = term_1 + term_2 + ballRadius;
-		return new SurfaceRadius(res);
+		return res;
 	}
 
-	public SurfaceClearance calcConcave(SurfaceRadius sr) {
+	public double calcConcave(SurfaceRadius sr) {
 		double tmpDif = sr.radius - ballRadius;
 		double rootExp = tmpDif * tmpDif - ringRadius * ringRadius;
 		double res = tmpDif - Math.sqrt(rootExp);
-		return new SurfaceClearance(res);
+		return res;
 	}
 
 	public static void main(String[] args) {
