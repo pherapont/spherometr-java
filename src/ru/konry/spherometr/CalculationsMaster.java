@@ -6,7 +6,7 @@ import ru.konry.spherometr.parametrs.*;
 public class CalculationsMaster {
 
     public static void main(String[] args) {
-        double result;
+        SurfaceClearance result;
         UserInputRegistrator uir = new UserInputRegistrator();
         UserSpherometrData usd = uir.getUserData();
         System.out.println(usd);
@@ -23,9 +23,9 @@ public class CalculationsMaster {
             sParameter = new SurfaceRadius(usd.getSurfaceMeasure());
         }
         if (usd.getSurfaceType() == SurfaceType.CONCAVE) {
-            result = calculator.calcConcave(sParameter);
+            result = calculator.calcConcave((SurfaceClearance) sParameter);
         } else {
-            result = calculator.calcConvex(sParameter);
+            result = calculator.calcConvex((SurfaceRadius) sParameter);
         }
     }
 }

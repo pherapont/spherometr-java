@@ -26,6 +26,15 @@ public class UserInputRegistrator {
         return userData;
     }
 
+    public void writeAllUserInputs() {
+        inventToInput();
+        writeSurfaceTypeInput();
+        writeCalculationTypeInput();
+        writeSpherometrTypeInput();
+        writeTypeOfRingInput();
+        writeSurfaceMeasure();
+    }
+
     private void inventToInput() {
         System.out.println("Расчет параметров оптической поверхности.");
     }
@@ -119,16 +128,11 @@ public class UserInputRegistrator {
 
     public static void main(String[] args) {
         UserInputRegistrator uir = new UserInputRegistrator();
-        uir.inventToInput();
-        uir.writeSurfaceTypeInput();
-        uir.writeCalculationTypeInput();
-        uir.writeSpherometrTypeInput();
-        uir.writeTypeOfRingInput();
-        uir.writeSurfaceMeasure();
+        uir.writeAllUserInputs();
         System.out.println("Тип поверхности: " + uir.userData.getSurfaceType());
         System.out.println("Тип вычисления: " + uir.userData.getCalculationType());
         System.out.println("Тип сферометра: " + uir.userData.getSpherometrType());
         System.out.println("Номер кольца сферометра: " + uir.userData.getRingNumber());
-        System.out.println("Входные данные для расчетов: " + uir.userData.getSurfaceMeasure());
+        System.out.println("Входные данные для расчетов: " + uir.userData.getSurfaceMeasure() + "мм");
     }
 }
