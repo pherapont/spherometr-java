@@ -17,6 +17,12 @@ public class UserInputRegistrator {
     }
 
     public UserSpherometrData getUserData() {
+        inventToInput();
+        writeSurfaceTypeInput();
+        writeCalculationTypeInput();
+        writeSpherometrTypeInput();
+        writeTypeOfRingInput();
+        writeSurfaceMeasure();
         return userData;
     }
 
