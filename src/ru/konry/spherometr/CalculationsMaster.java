@@ -3,28 +3,37 @@ package ru.konry.spherometr;
 import ru.konry.spherometr.cli.*;
 import ru.konry.spherometr.parametrs.*;
 
+// ! [ ] Попробовать осуществить восходящее преобразование типов к интерфейсу Calculator in class SpherometrBig and SphermetrSmall
+// ? [ ] Добавление TODO в Idea нижняя панель
+
 public class CalculationsMaster {
 
-    private double surfaceMeasure;
-    RadiusCalculator radiusCalculator;
-    ClearanceCalculator clearanceCalculator;
+    SpherometrBig spherometrBig;
+    SpherometrSmall spherometrSmall;
 
-    public CalculationsMaster(SurfaceRadius sr) {
-        surfaceMeasure = sr.radius;
-        clearanceCalculator = new ClearanceCalculator(0, 0, 0)
+    public CalculationsMaster(
+            int ringNumber, SurfaceRadius radius, SurfaceType surfaceType, SpherometrType spherometrType
+    ) {
+        if (spherometrType == SpherometrType.BIG) {
+            spherometrBig = new SpherometrBig(ringNumber, radius, surfaceType);
+        } else {
+            spherometrSmall = new SpherometrSmall(ringNumber, radius, surfaceType);
+        }
     }
 
-    public CalculationsMaster(SurfaceClearance sc) {
-        surfaceMeasure = sc.clearance;
-        radiusCalculator = new RadiusCalculator(0,0,0);
+    public CalculationsMaster(
+            int ringNumber, SurfaceClearance clearance, SurfaceType surfaceType, SpherometrType spherometrType
+    ) {
+        if (spherometrType == SpherometrType.BIG) {
+            spherometrBig = new SpherometrBig(ringNumber, clearance, surfaceType);
+        } else {
+            spherometrSmall = new SpherometrSmall(ringNumber, clearance, surfaceType);
+        }
     }
 
     public static void main(String[] args) {
-        SurfaceClearance result;
-        UserInputRegistrator uir = new UserInputRegistrator();
-        UserSpherometrData usd = uir.getUserData();
-        System.out.println(usd);
-        SurfaceParameter sParameter;
-
+        UserInputRegistrator registrator = new UserInputRegistrator();
+        UserSpherometrData userData = registrator.getUserData();
+        System.out.println(userData);
     }
 }

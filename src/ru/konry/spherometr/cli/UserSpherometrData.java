@@ -61,4 +61,9 @@ public class UserSpherometrData {
     public void setRingNumber(int ringNumber) {
         this.ringNumber = ringNumber;
     }
+
+    public static void main(String[] args) {
+        UserSpherometrData usd = new UserSpherometrData();
+        System.out.println(usd);
+    }
 }

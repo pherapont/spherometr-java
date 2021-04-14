@@ -4,6 +4,7 @@ import ru.konry.spherometr.parametrs.SurfaceClearance;
 import ru.konry.spherometr.parametrs.SurfaceRadius;
 import ru.konry.spherometr.parametrs.SurfaceType;
 
+
 public class SpherometrBig
 {
     public enum SpherBigData {
@@ -28,9 +29,7 @@ public class SpherometrBig
     SurfaceType type;
 
     public SpherometrBig(int ringNumber, SurfaceClearance measure, SurfaceType type) {
-        SpherBigData sphereType = SpherBigData.values()[ringNumber - 1];
-        ringRadius = sphereType.ringRadius;
-        ballRadius = sphereType.ballRadius;
+        initializeSpherometrParametrs(ringNumber);
         this.type = type;
         radiusCalculator = new RadiusCalculator(
                 measure.clearance, ringRadius, ballRadius
@@ -38,13 +37,13 @@ public class SpherometrBig
     }
 
     public SpherometrBig(int ringNumber, SurfaceRadius measure, SurfaceType type) {
-        SpherBigData sphereType = SpherBigData.values()[ringNumber - 1];
-        ringRadius = sphereType.ringRadius;
-        ballRadius = sphereType.ballRadius;
+        initializeSpherometrParametrs(ringNumber);
+        this.type = type;
         clearanceCalculator = new ClearanceCalculator(
                 measure.radius, ringRadius, ballRadius
         );
     }
+
     public double calculate() {
         double result;
         if(type == SurfaceType.CONCAVE) {
@@ -53,5 +52,11 @@ public class SpherometrBig
             result = clearanceCalculator.calcConvex();
         }
         return result;
+    }
+
+    private void initializeSpherometrParametrs(int ringNumber) {
+        SpherBigData sphereType = SpherBigData.values()[ringNumber - 1];
+        ringRadius = sphereType.ringRadius;
+        ballRadius = sphereType.ballRadius;
     }
 }
