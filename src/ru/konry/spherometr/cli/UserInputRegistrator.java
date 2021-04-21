@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class UserInputRegistrator {
 
-    UserSpherometrData userData;
+    private UserSpherometrData userData;
     Scanner input = new Scanner(System.in);
 
     public UserInputRegistrator() {
@@ -17,12 +17,7 @@ public class UserInputRegistrator {
     }
 
     public UserSpherometrData getUserData() {
-        inventToInput();
-        writeSurfaceTypeInput();
-        writeCalculationTypeInput();
-        writeSpherometrTypeInput();
-        writeTypeOfRingInput();
-        writeSurfaceMeasure();
+        writeAllUserInputs();
         return userData;
     }
 
