@@ -6,7 +6,8 @@ import ru.konry.spherometr.parametrs.CalculationType;
 import ru.konry.spherometr.parametrs.Spherometr;
 import ru.konry.spherometr.parametrs.SurfaceType;
 
-public class CalculationsExpert
+public class
+CalculationsExpert
 {
     private UserSpherometrData usd;
     private Calculator calculator;
@@ -42,6 +43,7 @@ public class CalculationsExpert
         UserSpherometrData usd = userInputRegistrator.getUserData();
         CalculationsExpert expert = new CalculationsExpert(usd);
         double result = expert.calculate();
+//        test
 
         System.out.println("Результат вычисления: " + result + "мм.");
     }
