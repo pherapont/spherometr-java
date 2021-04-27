@@ -43,8 +43,6 @@ CalculationsExpert
         UserSpherometrData usd = userInputRegistrator.getUserData();
         CalculationsExpert expert = new CalculationsExpert(usd);
         double result = expert.calculate();
-//        test
-
         System.out.println("Результат вычисления: " + result + "мм.");
     }
 }

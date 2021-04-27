@@ -43,10 +43,16 @@ public class UserInputRegistrator {
         do {
             try {
                 response = input.nextInt();
-                System.out.println("Вы ввели " + response);
+                if(params.contains(response)){
+                    System.out.println("Вы ввели допустимый параметр: " + response);
+                }
+                else {
+                    System.out.println("Вы ввели не допустимый параметр:  " + response);
+                    System.out.println("Введите допустимый параметр.");
+                }
             } catch (Exception exception){
-                System.out.println("Введите правильное значение!");
-                break;
+                System.out.println("Введите допустимое числовое значение!");
+                input.next();
             }
         } while (!params.contains(response));
         System.out.println("Ввод закончен!");
@@ -78,7 +84,7 @@ public class UserInputRegistrator {
         if(calculationType == 1) {
             userData.setCalculationType(CalculationType.RADIUS);
         } else {
-            userData.setCalculationType(CalculationType.CLEARANCE);
+            userData.setCalculationType(CalculationType.HEIGHT);
         }
     }
 
@@ -113,10 +119,14 @@ public class UserInputRegistrator {
         System.out.println("Введите данные для расчета поверхности (мм)");
         System.out.println("Дробная часть отделяется запятой.");
         double measure = 0;
-        try {
-            measure = input.nextDouble();
-        } catch (Exception ex) {
-            System.out.println("Введите числовое значение");
+        while (true) {
+            try {
+                measure = input.nextDouble();
+                break;
+            } catch (Exception ex) {
+                System.out.println("Введите числовое значение");
+                input.next();
+            }
         }
         userData.setSurfaceMeasure(measure);
     }
