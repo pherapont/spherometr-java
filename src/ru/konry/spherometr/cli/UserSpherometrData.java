@@ -1,8 +1,7 @@
 package ru.konry.spherometr.cli;
 
-import ru.konry.spherometr.parametrs.CalculationType;
-import ru.konry.spherometr.parametrs.SpherometrType;
-import ru.konry.spherometr.parametrs.SurfaceType;
+import ru.konry.spherometr.exceptions.RingTypeException;
+import ru.konry.spherometr.parametrs.*;
 
 public class UserSpherometrData {
     private SurfaceType surfaceType;
@@ -58,7 +57,13 @@ public class UserSpherometrData {
         return ringNumber;
     }
 
-    public void setRingNumber(int ringNumber) {
+//    TODO Write tests for method setRingNumber
+
+    public void setRingNumber(int ringNumber) throws RingTypeException {
+        if((spherometrType == SpherometrType.BIG && SpherBigData.values()[ringNumber].ringRadius >= surfaceMeasure) ||
+            (spherometrType == SpherometrType.SMALL && SpherSmallData.values()[ringNumber].ringRadius >= surfaceMeasure)) {
+            throw new RingTypeException("Невозможно провести измерения для данного радиуса с выбранным кольцом.");
+        }
         this.ringNumber = ringNumber;
     }
 

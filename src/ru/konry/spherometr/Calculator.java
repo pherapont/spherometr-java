@@ -1,5 +1,7 @@
 package ru.konry.spherometr;
 
+import ru.konry.spherometr.exceptions.OutOfRangeSpherometrMeasureException;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -8,6 +10,7 @@ public class Calculator
     private final double surfaceMeasure;
     private final double ringRadius;
     private final double ballRadius;
+    public final double rangeOfSpherometrMeasure = 15;
 
     public Calculator(double surfaceMeasure, double ringRadius, double ballRadius) {
         this.surfaceMeasure = surfaceMeasure;
@@ -15,18 +18,26 @@ public class Calculator
         this.ballRadius = ballRadius;
     }
 
-    public double calcConvexClearance() {
+    public double calcConvexClearance() throws OutOfRangeSpherometrMeasureException {
         double tmpSum = surfaceMeasure + ballRadius;
         double rootExp = tmpSum * tmpSum - ringRadius * ringRadius;
-        double result = tmpSum - Math.sqrt(rootExp);
-        return roundToThreeDecimalPlaces(result);
+        double result = roundToThreeDecimalPlaces(tmpSum - Math.sqrt(rootExp));
+        if (result >= rangeOfSpherometrMeasure) {
+            throw new OutOfRangeSpherometrMeasureException("Диапазон измерений сферометра не позволит измерить полученную высоту: " +
+                    result + "мм.");
+        }
+        return result;
     }
 
-    public double calcConcaveClearance() {
+    public double calcConcaveClearance() throws OutOfRangeSpherometrMeasureException {
         double tmpDif = surfaceMeasure - ballRadius;
         double rootExp = tmpDif * tmpDif - ringRadius * ringRadius;
-        double result = tmpDif - Math.sqrt(rootExp);
-        return roundToThreeDecimalPlaces(result);
+        double result = roundToThreeDecimalPlaces(tmpDif - Math.sqrt(rootExp));
+        if (result >= rangeOfSpherometrMeasure) {
+            throw new OutOfRangeSpherometrMeasureException("Диапазон измерений сферометра не позволит измерить полученную высоту: " +
+                    result + "мм.");
+        }
+        return result;
     }
 
     public double calcConvexRadius() {

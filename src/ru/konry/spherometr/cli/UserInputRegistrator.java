@@ -1,5 +1,6 @@
 package ru.konry.spherometr.cli;
 
+import ru.konry.spherometr.exceptions.RingTypeException;
 import ru.konry.spherometr.parametrs.CalculationType;
 import ru.konry.spherometr.parametrs.SpherometrType;
 import ru.konry.spherometr.parametrs.SurfaceType;
@@ -26,8 +27,8 @@ public class UserInputRegistrator {
         writeSurfaceTypeInput();
         writeCalculationTypeInput();
         writeSpherometrTypeInput();
-        writeTypeOfRingInput();
         writeSurfaceMeasure();
+        writeTypeOfRingInput();
     }
 
     private void inventToInput() {
@@ -102,19 +103,6 @@ public class UserInputRegistrator {
         }
     }
 
-    private void writeTypeOfRingInput() {
-        System.out.println("Введите номер кольца: ");
-
-        int ringNumber;
-        SpherometrType shpType = userData.getSpherometrType();
-        if(shpType == SpherometrType.BIG) {
-            ringNumber = getUserInput(4);
-        } else {
-            ringNumber = getUserInput(7);
-        }
-        userData.setRingNumber(ringNumber);
-    }
-
     private void writeSurfaceMeasure() {
         System.out.println("Введите данные для расчета поверхности (мм)");
         System.out.println("Дробная часть отделяется запятой.");
@@ -129,6 +117,23 @@ public class UserInputRegistrator {
             }
         }
         userData.setSurfaceMeasure(measure);
+    }
+
+    private void writeTypeOfRingInput() {
+        System.out.println("Введите номер кольца: ");
+
+        int ringNumber;
+        SpherometrType shpType = userData.getSpherometrType();
+        if(shpType == SpherometrType.BIG) {
+            ringNumber = getUserInput(4);
+        } else {
+            ringNumber = getUserInput(7);
+        }
+        try {
+            userData.setRingNumber(ringNumber);
+        } catch (RingTypeException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
