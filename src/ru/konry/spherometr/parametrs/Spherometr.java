@@ -4,10 +4,8 @@ import ru.konry.spherometr.cli.UserSpherometrData;
 
 public class Spherometr
 {
-    private double ringRadius;
-    private double ballRadius;
-    private int ringNumber;
-    SpherometrType type;
+    private final int ringNumber;
+    private final SpherometrType type;
 
 
     public Spherometr(UserSpherometrData usd) {
@@ -16,6 +14,7 @@ public class Spherometr
     }
 
     public double getRingRadius() {
+        double ringRadius;
         if(type == SpherometrType.BIG) {
             ringRadius = SpherBigData.values()[ringNumber - 1].ringRadius;
         } else {
@@ -25,6 +24,7 @@ public class Spherometr
     }
 
     public double getBallRadius() {
+        double ballRadius;
         if(type == SpherometrType.BIG) {
             ballRadius = SpherBigData.values()[ringNumber - 1].ballRadius;
         } else {

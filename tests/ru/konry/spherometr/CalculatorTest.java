@@ -7,6 +7,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 import ru.konry.spherometr.exceptions.OutOfRangeSpherometrMeasureException;
 import ru.konry.spherometr.parametrs.SpherBigData;
 
+import java.lang.reflect.Method;
+
 class CalculatorTest {
 
     @ParameterizedTest
