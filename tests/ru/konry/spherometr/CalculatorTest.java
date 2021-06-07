@@ -24,7 +24,8 @@ class CalculatorTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"120, 7.439"})
+    @CsvSource({"120, 7.439",
+            "205, 4.343"})
     void small_Ring2_CalcConvexHeightTest(double radius, double height) throws OutOfRangeSpherometrMeasureException {
         SpherSmallData ring2 = SpherSmallData.RING_2;
         Calculator calculator = new Calculator(radius, ring2.ringRadius, ring2.ballRadius);
